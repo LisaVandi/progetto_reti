@@ -1,6 +1,11 @@
-# Traccia 3: Monitoraggio di Rete
+""" 
+Traccia 3: Monitoraggio di Rete.
 
-# da installare con pip install pythonping
+Realizzare uno script Python per monitorare lo stato di una rete, 
+controllando la disponibilità di uno o più host tramite il protocollo ICMP (ping).
+Lo script deve consentire all'utente di specificare gli indirizzi IP degli host da monitorare e deve visualizzare lo stato di ciascun host.
+"""
+
 from pythonping import ping
 import ipaddress
 
@@ -52,7 +57,7 @@ def main():
     hosts = []
     for i in range(num_hosts):
         while True: # Ciclo finché non viene inserito un indirizzo IP valido
-            host = input(f"\nInserisci l'indirizzo IP dell'host {i + 1}: ")
+            host = input(f"\nInserire l'indirizzo IP dell'host {i + 1}: ")
             if valid_ip(host):
                 hosts.append(host)
                 break
@@ -68,7 +73,3 @@ def main():
 
 if __name__ == "__main__":
     main()
-
-# DA FARE: 
-# capire perché non funziona online e offline
-# relazione 
