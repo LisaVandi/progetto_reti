@@ -13,16 +13,13 @@ import ipaddress
     Funzione per eseguire il comando ping e controllare lo stato di un host
     :param host: Indirizzo IP dell'host da monitorare
     :return: True se l'host è raggiungibile, False altrimenti
-    Inoltre, gestisce anche eventuali eccezioni, come il timeout delle richieste ICMP.
+    Inoltre, gestisce anche eventuali eccezioni.
 """
 def ping_host(host):
     try:
         # Esegui un solo ping verso l'host con timeout di 2 secondi
         response_list = ping(host, count=1, timeout=2)
         return response_list.success()  # True se l'host è raggiungibile, False altrimenti
-    except TimeoutError:   
-        print(f"Timeout scaduto durante il ping di {host}")
-        return False  # Timeout scaduto durante il ping
     except Exception as e:
         print(f"Errore {e} durante il ping di {host}")
         return False  # Errore durante il ping
